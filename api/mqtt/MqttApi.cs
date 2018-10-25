@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using api.common;
 using entity.process;
 using Newtonsoft.Json;
@@ -20,6 +19,7 @@ namespace api.mqtt
         {
             //throw new NotImplementedException();
             string json = JsonConvert.SerializeObject(entity);
+
             Console.WriteLine(json);
             return 0;
         }

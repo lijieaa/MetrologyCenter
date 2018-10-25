@@ -58,10 +58,6 @@
       <Project>{18aa981b-ff90-4103-ab51-5562c2856473}</Project>
       <Name>api</Name>
     </ProjectReference>
-    <ProjectReference Include="..\entity\entity.csproj">
-      <Project>{5507fc0f-d24b-4623-a8b0-a5421268dea9}</Project>
-      <Name>entity</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
