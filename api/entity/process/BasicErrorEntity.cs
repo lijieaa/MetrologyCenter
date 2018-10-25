@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using entity.common;
+using api.entity.common;
 
 namespace entity.process
 {

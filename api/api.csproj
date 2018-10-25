@@ -44,6 +44,7 @@
     <Compile Include="common\IBaseApi.cs" />
     <Compile Include="entity\common\BaseEntity.cs" />
     <Compile Include="entity\process\BasicErrorEntity.cs" />
+    <Compile Include="entity\process\SurplusEQDescendEntity.cs" />
     <Compile Include="mqtt\MqttApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

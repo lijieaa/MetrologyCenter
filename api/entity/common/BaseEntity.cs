@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace entity.common
+namespace api.entity.common
 {
     public abstract class BaseEntity
     {
