@@ -58,6 +58,10 @@
       <Project>{18aa981b-ff90-4103-ab51-5562c2856473}</Project>
       <Name>api</Name>
     </ProjectReference>
+    <ProjectReference Include="..\uPLibrary.Networking\uPLibrary.Networking.csproj">
+      <Project>{A7D11055-B759-4E2E-A54C-F25EF48E924D}</Project>
+      <Name>uPLibrary.Networking</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

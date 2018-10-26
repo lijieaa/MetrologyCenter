@@ -14,7 +14,7 @@ namespace UnitTestApi
         [TestInitialize]
         public void init()
         {
-            api = new MqttApi("jay","127.0.0.1",1883,"aaaaa");
+            api = new MqttApi("127.0.0.1");
         }
         [TestMethod]
         public void sendBasicError()

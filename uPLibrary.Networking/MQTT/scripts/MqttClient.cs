@@ -621,6 +621,7 @@ namespace uPLibrary.Networking.M2Mqtt
                 MqttUtility.Trace.WriteLine(TraceLevel.Error, "Exception occurred: {0}", e.ToString());
 
                 this.isKeepAliveTimeout = true;
+                this.IsConnected = false;
                 // client must close connection
                 this.Close();
                 return null;
