@@ -106,6 +106,13 @@ namespace ApiWindowsFormsDemo
             Console.WriteLine("Api_MqttMsgDisconnected");
         }
 
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            fThread.Abort();
+            api.Disconnect();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             DetectHead head = new DetectHead("08","02","1","1","00","000","115","009","001","002", "3530001000101287123919");
@@ -132,10 +139,13 @@ namespace ApiWindowsFormsDemo
             api.sendDeviceConstantTest(head, deviceConstantTest);
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+       
+
+        private void button4_Click(object sender, EventArgs e)
         {
-            fThread.Abort();
-            api.Disconnect();
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "009", "005", "005", "3530001000101287188895");
+            StartTest startTest = new StartTest("P+", "合元115",1.0f,1.0f,1.0f,1);
+            api.sendStartTest(head, startTest);
         }
     }
 }

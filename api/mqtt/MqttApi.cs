@@ -181,5 +181,41 @@ namespace api.mqtt
 
             return 0;
         }
+        /// <summary>
+        /// 起动试验（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="startTest">起动试验（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        public int sendStartTest(DetectHead head, StartTest startTest)
+        {
+
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //起动理论时间
+            string TheoryStartTimes = head.TypeId + "_" + startTest.ToString() + "1" + "@" + startTest.TheoryStartTimes;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TheoryStartTimes), this.qosLevel, this.retain);
+
+
+            //起动实际耗时
+            string RealStartTimes = head.TypeId + "_" + startTest.ToString() + "2" + "@" + startTest.RealStartTimes;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(RealStartTimes), this.qosLevel, this.retain);
+
+
+            //起动脉冲数
+            string StartPulses = head.TypeId + "_" + startTest.ToString() + "3" + "@" + startTest.StartPulses;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(StartPulses), this.qosLevel, this.retain);
+
+            
+
+            //结论
+            string Result = head.TypeId + "_" + startTest.ToString() + "4" + "@" + startTest.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
     }
 }

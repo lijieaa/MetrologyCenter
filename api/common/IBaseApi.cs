@@ -31,5 +31,13 @@ namespace api.common
         /// <param name="deviceConstantTest">电能表常数试验（单相表、三相表）属性信息</param>
         /// <returns></returns>
         int sendDeviceConstantTest(DetectHead head, DeviceConstantTest deviceConstantTest);
+
+        /// <summary>
+        /// 起动试验（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="startTest">起动试验（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        int sendStartTest(DetectHead head, StartTest startTest);
     }
 }

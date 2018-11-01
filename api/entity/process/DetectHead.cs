@@ -152,14 +152,14 @@ namespace api.entity.process
             get
             {
                 return string.Format("{0}_{1}_{2}_{3}_{4}_{5}_{6}_{7}_{8}"
-                , this.OrgId
-                , this.SystemId
+                , this.OrgId 
+                , this.SystemId 
                 , this.TestWay
-                , this.EquipCateg
-                , this.DetectLineId
-                , this.DetectStationId
-                , this.DetectUnitId
-                , this.DetectUnitNo
+                , this.EquipCateg 
+                , this.DetectLineId  
+                , this.DetectStationId 
+                , this.DetectUnitId 
+                , this.DetectUnitNo 
                 , this.meterId
                 ); ;
             }
