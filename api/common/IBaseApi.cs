@@ -57,5 +57,14 @@ namespace api.common
         /// <param name="errorVariationTest">误差变差试验属性信息</param>
         /// <returns></returns>
         int sendErrorVariationTest(DetectHead head, ErrorVariationTest errorVariationTest);
+
+
+        /// <summary>
+        /// 误差一致性试验
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="errorConsistencyTest">误差一致性试验属性信息</param>
+        /// <returns></returns>
+        int sendErrorConsistencyTest(DetectHead head, ErrorConsistencyTest errorConsistencyTest);
     }
 }

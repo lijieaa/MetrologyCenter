@@ -339,5 +339,41 @@ namespace api.mqtt
 
             return 0;
         }
+
+        /// <summary>
+        /// 误差一致性试验
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="errorConsistencyTest">误差一致性试验属性信息</param>
+        /// <returns></returns>
+        public int sendErrorConsistencyTest(DetectHead head, ErrorConsistencyTest errorConsistencyTest)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //最大误差
+            string MaxError = head.TypeId + "_" + errorConsistencyTest.ToString() + "1" + "@" + errorConsistencyTest.MaxError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(MaxError), this.qosLevel, this.retain);
+
+
+            //所有表位误差平均值
+            string AllAvgError = head.TypeId + "_" + errorConsistencyTest.ToString() + "2" + "@" + errorConsistencyTest.AllAvgError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AllAvgError), this.qosLevel, this.retain);
+
+
+            //所有表位平均误差化整值
+            string AllIntError = head.TypeId + "_" + errorConsistencyTest.ToString() + "3" + "@" + errorConsistencyTest.AllIntError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AllIntError), this.qosLevel, this.retain);
+
+
+
+            //结论
+            string Result = head.TypeId + "_" + errorConsistencyTest.ToString() + "4" + "@" + errorConsistencyTest.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
     }
 }

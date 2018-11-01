@@ -177,5 +177,12 @@ namespace ApiWindowsFormsDemo
             ErrorVariationTest errorVariationTest = new ErrorVariationTest("P+", "合元115", "", 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1);
             api.sendErrorVariationTest(head, errorVariationTest);
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "012", "006", "3530001000101287188895");
+            ErrorConsistencyTest errorConsistencyTest = new ErrorConsistencyTest("P+", "合元115", "", 1.4f, 1.2f, 1.3f, 1);
+            api.sendErrorConsistencyTest(head, errorConsistencyTest);
+        }
     }
 }
