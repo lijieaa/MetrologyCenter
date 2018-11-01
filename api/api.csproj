@@ -46,6 +46,7 @@
     <Compile Include="entity\process\BasicErrorEntity.cs" />
     <Compile Include="entity\process\DetectHead.cs" />
     <Compile Include="entity\process\DeviceConstantTest.cs" />
+    <Compile Include="entity\process\ShuntRunningTest.cs" />
     <Compile Include="entity\process\StartTest.cs" />
     <Compile Include="entity\process\SurplusEQDescendEntity.cs" />
     <Compile Include="mqtt\MqttApi.cs" />

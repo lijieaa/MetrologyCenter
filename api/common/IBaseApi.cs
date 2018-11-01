@@ -39,5 +39,14 @@ namespace api.common
         /// <param name="startTest">起动试验（单相表、三相表）属性信息</param>
         /// <returns></returns>
         int sendStartTest(DetectHead head, StartTest startTest);
+
+
+        /// <summary>
+        /// 潜动试验（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="shuntRunningTest">潜动试验（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        int sendShuntRunningTest(DetectHead head, ShuntRunningTest shuntRunningTest);
     }
 }

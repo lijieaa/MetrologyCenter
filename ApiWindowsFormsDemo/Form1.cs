@@ -143,9 +143,16 @@ namespace ApiWindowsFormsDemo
 
         private void button4_Click(object sender, EventArgs e)
         {
-            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "009", "005", "005", "3530001000101287188895");
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "009", "004", "005", "3530001000101287188895");
             StartTest startTest = new StartTest("P+", "合元115",1.0f,1.0f,1.0f,1);
             api.sendStartTest(head, startTest);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "009", "005", "006", "3530001000101287188895");
+            ShuntRunningTest shuntRunningTest = new ShuntRunningTest("P+", "合元115","", 1.0f, 1.0f, 1.0f, 1);
+            api.sendShuntRunningTest(head, shuntRunningTest);
         }
     }
 }

@@ -217,5 +217,40 @@ namespace api.mqtt
 
             return 0;
         }
+        /// <summary>
+        /// 潜动试验（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="shuntRunningTest">潜动试验（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        public int sendShuntRunningTest(DetectHead head, ShuntRunningTest shuntRunningTest)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //潜动理论耗时
+            string TheoryShuntTimes = head.TypeId + "_" + shuntRunningTest.ToString() + "1" + "@" + shuntRunningTest.TheoryShuntTimes;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TheoryShuntTimes), this.qosLevel, this.retain);
+
+
+            //潜动实际耗时
+            string RealShuntTimes = head.TypeId + "_" + shuntRunningTest.ToString() + "2" + "@" + shuntRunningTest.RealShuntTimes;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(RealShuntTimes), this.qosLevel, this.retain);
+
+
+            //潜动脉冲数
+            string ShuntPulses = head.TypeId + "_" + shuntRunningTest.ToString() + "3" + "@" + shuntRunningTest.ShuntPulses;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(ShuntPulses), this.qosLevel, this.retain);
+
+
+
+            //结论
+            string Result = head.TypeId + "_" + shuntRunningTest.ToString() + "4" + "@" + shuntRunningTest.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
     }
 }
