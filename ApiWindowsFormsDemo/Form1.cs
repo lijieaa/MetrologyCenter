@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using api.mqtt;
-using entity.process;
+using api.entity.process;
 using uPLibrary.Networking.M2Mqtt.Messages;
 using System.Threading;
 
@@ -16,6 +16,7 @@ namespace ApiWindowsFormsDemo
     public partial class Form1 : Form
     {
         private MqttApi api;
+
 
         Thread fThread;
         public Form1()
@@ -28,7 +29,18 @@ namespace ApiWindowsFormsDemo
         {
             api = new MqttApi("127.0.0.1");
             string clientId = Guid.NewGuid().ToString();
-            api.Connect(clientId);
+
+            try
+            {
+                api.Connect(clientId);
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("连接服务器失败！");
+            }
+            
+
             api.MqttMsgDisconnected += Api_MqttMsgDisconnected;
             api.MqttMsgPublished += Api_MqttMsgPublished;
             api.MqttMsgPublishReceived += Api_MqttMsgPublishReceived;
@@ -96,8 +108,28 @@ namespace ApiWindowsFormsDemo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BasicErrorEntity be = new BasicErrorEntity("0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "aa", "bb", "cc", 0, 0, 0, 0, 0, 0, 0, 0);
-            api.sendBasicError(be);
+            DetectHead head = new DetectHead("08","02","1","1","00","000","115","009","001","002", "3530001000101287123919");
+            BasicErrorEntity basicError = new BasicErrorEntity("P+", "合元0.5L", "0.2Ib", 1.2f, 1.3f, 1.4f, 1.5f, 1.6f, 1.7f, 1,1);
+            api.sendBasicError(head, basicError);
+        }
+
+        
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 常数试验
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "009", "003", "004", "3530001000101287103416");
+            DeviceConstantTest deviceConstantTest = new DeviceConstantTest("P+", "合元", "0.004Ib","",0,0,1.1f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,1);
+            api.sendDeviceConstantTest(head, deviceConstantTest);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

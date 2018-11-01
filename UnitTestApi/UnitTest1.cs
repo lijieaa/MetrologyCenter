@@ -19,7 +19,7 @@ namespace UnitTestApi
         [TestMethod]
         public void sendBasicError()
         {
-            BasicErrorEntity be = new BasicErrorEntity("0","0","0","0","0","0","0","0","0","0","0","aa", "bb", "cc", 0, 0, 0, 0, 0, 0, 0, 0);
+            BasicErrorEntity be = new BasicErrorEntity("0","0","0","0","0","0","0","0","0","0","0","aa", "bb", "cc", 0, 0);
             api.sendBasicError(be);
         }
         [TestCleanup]

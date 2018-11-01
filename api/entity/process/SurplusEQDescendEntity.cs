@@ -9,7 +9,7 @@ namespace api.entity.process
     /// <summary>
     /// 剩余电能量递减准确度
     /// </summary>
-    class SurplusEQDescendEntity : BaseEntity
+    public class SurplusEQDescendEntity 
     {
         string powDirection;//功率方向
         string loadCurrent;//电流负载
@@ -18,9 +18,7 @@ namespace api.entity.process
         float surplusEq;//剩余电量
         int result;//结论
 
-
-        public SurplusEQDescendEntity(string orgId, string systemId, string testWay, string equipCateg, string detectLineId, string detectStationId, string detectUnitId, string detectUnitNo, string typeId, string meterId, string barCode, string powDirection, string loadCurrent, string powFactor, float totalEq, float surplusEq, int result) 
-            : base(orgId, systemId, testWay, equipCateg, detectLineId, detectStationId, detectUnitId, detectUnitNo, typeId, meterId, barCode)
+        public SurplusEQDescendEntity(string powDirection, string loadCurrent, string powFactor, float totalEq, float surplusEq, int result)
         {
             this.powDirection = powDirection;
             this.loadCurrent = loadCurrent;
@@ -29,6 +27,7 @@ namespace api.entity.process
             this.surplusEq = surplusEq;
             this.result = result;
         }
+
         public string PowDirection
         {
             get
