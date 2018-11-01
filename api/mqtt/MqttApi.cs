@@ -252,5 +252,92 @@ namespace api.mqtt
 
             return 0;
         }
+
+        /// <summary>
+        /// 误差变差试验
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="errorVariationTest">误差变差试验属性信息</param>
+        /// <returns></returns>
+        public int sendErrorVariationTest(DetectHead head, ErrorVariationTest errorVariationTest)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //一次误差1
+            string OnceError1 = head.TypeId + "_" + errorVariationTest.ToString() + "1" + "@" + errorVariationTest.OnceError1;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(OnceError1), this.qosLevel, this.retain);
+
+
+            //一次误差2
+            string OnceError2 = head.TypeId + "_" + errorVariationTest.ToString() + "2" + "@" + errorVariationTest.OnceError2;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(OnceError2), this.qosLevel, this.retain);
+
+
+            //一次误差3
+            string OnceError3 = head.TypeId + "_" + errorVariationTest.ToString() + "3" + "@" + errorVariationTest.OnceError3;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(OnceError3), this.qosLevel, this.retain);
+
+            //一次误差4
+            string OnceError4 = head.TypeId + "_" + errorVariationTest.ToString() + "4" + "@" + errorVariationTest.OnceError4;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(OnceError4), this.qosLevel, this.retain);
+
+            //一次误差5
+            string RunningDif = head.TypeId + "_" + errorVariationTest.ToString() + "5" + "@" + errorVariationTest.OnceError5;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(RunningDif), this.qosLevel, this.retain);
+
+            //一次误差平均值
+            string AvgOnceError = head.TypeId + "_" + errorVariationTest.ToString() + "6" + "@" + errorVariationTest.AvgOnceError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AvgOnceError), this.qosLevel, this.retain);
+
+
+            //一次误差化整值
+            string IntOnceError = head.TypeId + "_" + errorVariationTest.ToString() + "7" + "@" + errorVariationTest.IntOnceError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(IntOnceError), this.qosLevel, this.retain);
+
+
+
+
+            //二次误差1
+            string TwiceError1 = head.TypeId + "_" + errorVariationTest.ToString() + "8" + "@" + errorVariationTest.TwiceError1;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TwiceError1), this.qosLevel, this.retain);
+
+
+            //二次误差2
+            string TwiceError2 = head.TypeId + "_" + errorVariationTest.ToString() + "9" + "@" + errorVariationTest.TwiceError2;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TwiceError2), this.qosLevel, this.retain);
+
+
+            //二次误差3
+            string TwiceError3 = head.TypeId + "_" + errorVariationTest.ToString() + "10" + "@" + errorVariationTest.TwiceError3;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TwiceError3), this.qosLevel, this.retain);
+
+            //二次误差4
+            string TwiceError4 = head.TypeId + "_" + errorVariationTest.ToString() + "11" + "@" + errorVariationTest.TwiceError4;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TwiceError4), this.qosLevel, this.retain);
+
+            //二次误差5
+            string TwiceError5 = head.TypeId + "_" + errorVariationTest.ToString() + "12" + "@" + errorVariationTest.TwiceError5;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TwiceError5), this.qosLevel, this.retain);
+
+            //二次误差平均值
+            string AvgTwiceError = head.TypeId + "_" + errorVariationTest.ToString() + "13" + "@" + errorVariationTest.AvgTwiceError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AvgOnceError), this.qosLevel, this.retain);
+
+
+            //一次误差化整值
+            string IntTwiceError = head.TypeId + "_" + errorVariationTest.ToString() + "14" + "@" + errorVariationTest.IntTwiceError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(IntTwiceError), this.qosLevel, this.retain);
+
+
+            //结论
+            string Result = head.TypeId + "_" + errorVariationTest.ToString() + "15" + "@" + errorVariationTest.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+
+            return 0;
+        }
     }
 }

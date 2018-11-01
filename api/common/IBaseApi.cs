@@ -48,5 +48,14 @@ namespace api.common
         /// <param name="shuntRunningTest">潜动试验（单相表、三相表）属性信息</param>
         /// <returns></returns>
         int sendShuntRunningTest(DetectHead head, ShuntRunningTest shuntRunningTest);
+
+
+        /// <summary>
+        /// 误差变差试验
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="errorVariationTest">误差变差试验属性信息</param>
+        /// <returns></returns>
+        int sendErrorVariationTest(DetectHead head, ErrorVariationTest errorVariationTest);
     }
 }

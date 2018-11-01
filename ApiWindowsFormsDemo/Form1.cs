@@ -112,7 +112,11 @@ namespace ApiWindowsFormsDemo
             fThread.Abort();
             api.Disconnect();
         }
-
+        /// <summary>
+        /// 基本误差试验（单相表、三相表）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             DetectHead head = new DetectHead("08","02","1","1","00","000","115","009","001","002", "3530001000101287123919");
@@ -139,20 +143,39 @@ namespace ApiWindowsFormsDemo
             api.sendDeviceConstantTest(head, deviceConstantTest);
         }
 
-       
 
+        /// <summary>
+        /// 起动试验（单相表、三相表）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
             DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "009", "004", "005", "3530001000101287188895");
             StartTest startTest = new StartTest("P+", "合元115",1.0f,1.0f,1.0f,1);
             api.sendStartTest(head, startTest);
         }
-
+        /// <summary>
+        /// 潜动试验（单相表、三相表）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button5_Click(object sender, EventArgs e)
         {
             DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "009", "005", "006", "3530001000101287188895");
             ShuntRunningTest shuntRunningTest = new ShuntRunningTest("P+", "合元115","", 1.0f, 1.0f, 1.0f, 1);
             api.sendShuntRunningTest(head, shuntRunningTest);
+        }
+        /// <summary>
+        /// 误差变差实验
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "011", "006", "3530001000101287188895");
+            ErrorVariationTest errorVariationTest = new ErrorVariationTest("P+", "合元115", "", 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1);
+            api.sendErrorVariationTest(head, errorVariationTest);
         }
     }
 }
