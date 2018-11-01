@@ -44,6 +44,7 @@
     <Compile Include="common\IBaseApi.cs" />
     <Compile Include="entity\common\BaseEntity.cs" />
     <Compile Include="entity\process\BasicErrorEntity.cs" />
+    <Compile Include="entity\process\CurrentLoadUpdownVarErr.cs" />
     <Compile Include="entity\process\DetectHead.cs" />
     <Compile Include="entity\process\DeviceConstantTest.cs" />
     <Compile Include="entity\process\ErrorConsistencyTest.cs" />

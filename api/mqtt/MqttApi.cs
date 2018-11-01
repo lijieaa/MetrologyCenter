@@ -375,5 +375,92 @@ namespace api.mqtt
 
             return 0;
         }
+
+        /// <summary>
+        /// 负载电流升降变差试验
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="currentLoadUpdownVarErr">负载电流升降变差试验属性信息</param>
+        /// <returns></returns>
+        public int sendCurrentLoadUpdownVarErr(DetectHead head, CurrentLoadUpdownVarErr currentLoadUpdownVarErr)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //升方向误差1
+            string UpError1 = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "1" + "@" + currentLoadUpdownVarErr.UpError1;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(UpError1), this.qosLevel, this.retain);
+
+
+            //升方向误差2
+            string UpError2 = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "2" + "@" + currentLoadUpdownVarErr.UpError2;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(UpError2), this.qosLevel, this.retain);
+
+
+            //升方向误差3
+            string UpError3 = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "3" + "@" + currentLoadUpdownVarErr.UpError3;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(UpError3), this.qosLevel, this.retain);
+
+            //升方向误差4
+            string UpError4 = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "4" + "@" + currentLoadUpdownVarErr.UpError4;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(UpError4), this.qosLevel, this.retain);
+
+            //升方向误差5
+            string UpError5 = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "5" + "@" + currentLoadUpdownVarErr.UpError5;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(UpError5), this.qosLevel, this.retain);
+
+            //降方向误差1
+            string DownError1 = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "6" + "@" + currentLoadUpdownVarErr.DownError1;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(DownError1), this.qosLevel, this.retain);
+
+
+            //降方向误差2
+            string DownError2 = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "7" + "@" + currentLoadUpdownVarErr.DownError2;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(DownError2), this.qosLevel, this.retain);
+
+
+
+
+            //降方向误差3
+            string DownError3 = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "8" + "@" + currentLoadUpdownVarErr.DownError3;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(DownError3), this.qosLevel, this.retain);
+
+
+            //降方向误差4
+            string DownError4 = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "9" + "@" + currentLoadUpdownVarErr.DownError4;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(DownError4), this.qosLevel, this.retain);
+
+
+            //降方向误差5
+            string DownError5 = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "10" + "@" + currentLoadUpdownVarErr.DownError5;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(DownError5), this.qosLevel, this.retain);
+
+            //升降方向误差平均值
+            string AvgErr = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "11" + "@" + currentLoadUpdownVarErr.AvgErr;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AvgErr), this.qosLevel, this.retain);
+
+            //升降方向误差化整值
+            string IntAvgErr = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "12" + "@" + currentLoadUpdownVarErr.IntAvgErr;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(IntAvgErr), this.qosLevel, this.retain);
+
+            //升降变差
+            string VariationErr = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "13" + "@" + currentLoadUpdownVarErr.VariationErr;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(VariationErr), this.qosLevel, this.retain);
+
+
+            //升降变差化整值
+            string IntVariationErr = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "14" + "@" + currentLoadUpdownVarErr.IntVariationErr;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(IntVariationErr), this.qosLevel, this.retain);
+
+
+            //结论
+            string Result = head.TypeId + "_" + currentLoadUpdownVarErr.ToString() + "15" + "@" + currentLoadUpdownVarErr.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+
+            return 0;
+        }
     }
 }

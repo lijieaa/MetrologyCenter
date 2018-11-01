@@ -66,5 +66,14 @@ namespace api.common
         /// <param name="errorConsistencyTest">误差一致性试验属性信息</param>
         /// <returns></returns>
         int sendErrorConsistencyTest(DetectHead head, ErrorConsistencyTest errorConsistencyTest);
+
+
+        /// <summary>
+        /// 负载电流升降变差试验
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="currentLoadUpdownVarErr">负载电流升降变差试验属性信息</param>
+        /// <returns></returns>
+        int sendCurrentLoadUpdownVarErr(DetectHead head, CurrentLoadUpdownVarErr currentLoadUpdownVarErr);
     }
 }

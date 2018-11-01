@@ -178,11 +178,28 @@ namespace ApiWindowsFormsDemo
             api.sendErrorVariationTest(head, errorVariationTest);
         }
 
+        /// <summary>
+        /// 误差一致性
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button7_Click(object sender, EventArgs e)
         {
             DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "012", "006", "3530001000101287188895");
             ErrorConsistencyTest errorConsistencyTest = new ErrorConsistencyTest("P+", "合元115", "", 1.4f, 1.2f, 1.3f, 1);
             api.sendErrorConsistencyTest(head, errorConsistencyTest);
+        }
+
+        /// <summary>
+        /// 负载电流升降变差试验
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "013", "006", "3530001000101287188895");
+            CurrentLoadUpdownVarErr currentLoadUpdownVarErr = new CurrentLoadUpdownVarErr("P+", "合元115", "", "", 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1);
+            api.sendCurrentLoadUpdownVarErr(head, currentLoadUpdownVarErr);
         }
     }
 }
