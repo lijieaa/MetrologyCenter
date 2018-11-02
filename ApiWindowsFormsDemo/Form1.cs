@@ -201,5 +201,17 @@ namespace ApiWindowsFormsDemo
             CurrentLoadUpdownVarErr currentLoadUpdownVarErr = new CurrentLoadUpdownVarErr("P+", "合元115", "", "", 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1);
             api.sendCurrentLoadUpdownVarErr(head, currentLoadUpdownVarErr);
         }
+        /// <summary>
+        /// 电流过载试验
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="currentOverLoad">电流过载试验属性信息</param>
+        /// <returns></returns>
+        private void button9_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "024", "006", "3530001000101287188895");
+            CurrentOverLoad currentOverLoad = new CurrentOverLoad("P+", "合元115", "", 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1);
+            api.sendCurrentOverLoad(head, currentOverLoad);
+        }
     }
 }

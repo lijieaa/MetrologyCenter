@@ -75,5 +75,14 @@ namespace api.common
         /// <param name="currentLoadUpdownVarErr">负载电流升降变差试验属性信息</param>
         /// <returns></returns>
         int sendCurrentLoadUpdownVarErr(DetectHead head, CurrentLoadUpdownVarErr currentLoadUpdownVarErr);
+
+
+        /// <summary>
+        /// 电流过载试验
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="currentOverLoad">电流过载试验属性信息</param>
+        /// <returns></returns>
+        int sendCurrentOverLoad(DetectHead head, CurrentOverLoad currentOverLoad);
     }
 }

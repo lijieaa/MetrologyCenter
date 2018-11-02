@@ -462,5 +462,91 @@ namespace api.mqtt
 
             return 0;
         }
+        /// <summary>
+        /// 电流过载试验
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="currentOverLoad">电流过载试验属性信息</param>
+        /// <returns></returns>
+        public int sendCurrentOverLoad(DetectHead head, CurrentOverLoad currentOverLoad)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //过载时间;秒
+            string OverloadTimes = head.TypeId + "_" + currentOverLoad.ToString() + "1" + "@" + currentOverLoad.OverloadTimes;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(OverloadTimes), this.qosLevel, this.retain);
+
+
+            //恢复等待时间
+            string RecoveryWaitTimes = head.TypeId + "_" + currentOverLoad.ToString() + "2" + "@" + currentOverLoad.RecoveryWaitTimes;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(RecoveryWaitTimes), this.qosLevel, this.retain);
+
+
+            //第一次误差1
+            string FirstError1 = head.TypeId + "_" + currentOverLoad.ToString() + "3" + "@" + currentOverLoad.FirstError1;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(FirstError1), this.qosLevel, this.retain);
+
+            //第一次误差2
+            string FirstError2 = head.TypeId + "_" + currentOverLoad.ToString() + "4" + "@" + currentOverLoad.FirstError2;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(FirstError2), this.qosLevel, this.retain);
+
+            //第一次误差3
+            string FirstError3 = head.TypeId + "_" + currentOverLoad.ToString() + "5" + "@" + currentOverLoad.FirstError3;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(FirstError3), this.qosLevel, this.retain);
+
+            //第一次误差4
+            string FirstError4 = head.TypeId + "_" + currentOverLoad.ToString() + "6" + "@" + currentOverLoad.FirstError4;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(FirstError4), this.qosLevel, this.retain);
+
+
+            //第一次误差5
+            string FirstError5 = head.TypeId + "_" + currentOverLoad.ToString() + "7" + "@" + currentOverLoad.FirstError5;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(FirstError5), this.qosLevel, this.retain);
+
+
+
+
+            //第二次误差1
+            string SecdError1 = head.TypeId + "_" + currentOverLoad.ToString() + "8" + "@" + currentOverLoad.SecdError1;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SecdError1), this.qosLevel, this.retain);
+
+
+            //第二次误差2
+            string SecdError2 = head.TypeId + "_" + currentOverLoad.ToString() + "9" + "@" + currentOverLoad.SecdError2;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SecdError2), this.qosLevel, this.retain);
+
+
+            //第二次误差3
+            string SecdError3 = head.TypeId + "_" + currentOverLoad.ToString() + "10" + "@" + currentOverLoad.SecdError3;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SecdError3), this.qosLevel, this.retain);
+
+            //第二次误差4
+            string SecdError4 = head.TypeId + "_" + currentOverLoad.ToString() + "11" + "@" + currentOverLoad.SecdError4;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SecdError4), this.qosLevel, this.retain);
+
+            //第二次误差5
+            string SecdError5 = head.TypeId + "_" + currentOverLoad.ToString() + "12" + "@" + currentOverLoad.SecdError5;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SecdError5), this.qosLevel, this.retain);
+
+            //误差平均值
+            string AvgErr = head.TypeId + "_" + currentOverLoad.ToString() + "13" + "@" + currentOverLoad.AvgErr;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AvgErr), this.qosLevel, this.retain);
+
+
+            //误差化整值
+            string IntConvertError = head.TypeId + "_" + currentOverLoad.ToString() + "14" + "@" + currentOverLoad.IntConvertError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(IntConvertError), this.qosLevel, this.retain);
+
+
+            //结论
+            string Result = head.TypeId + "_" + currentOverLoad.ToString() + "15" + "@" + currentOverLoad.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+
+            return 0;
+        }
     }
 }
