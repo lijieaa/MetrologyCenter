@@ -548,5 +548,68 @@ namespace api.mqtt
 
             return 0;
         }
+        /// <summary>
+        /// 计数器示值组合误差
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="currentOverLoad">计数器示值组合误差属性信息</param>
+        /// <returns></returns>
+        public int sendCounterValueCombineError(DetectHead head, CounterValueCombineError counterValueCombineError)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //总
+            string TotalValue = head.TypeId + "_" + counterValueCombineError.ToString() + "1" + "@" + counterValueCombineError.TotalValue;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TotalValue), this.qosLevel, this.retain);
+
+
+            //峰
+            string PeakValue = head.TypeId + "_" + counterValueCombineError.ToString() + "2" + "@" + counterValueCombineError.PeakValue;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(PeakValue), this.qosLevel, this.retain);
+
+
+            //平
+            string ShoulderValue = head.TypeId + "_" + counterValueCombineError.ToString() + "3" + "@" + counterValueCombineError.ShoulderValue;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(ShoulderValue), this.qosLevel, this.retain);
+
+            //谷
+            string ValleyValue = head.TypeId + "_" + counterValueCombineError.ToString() + "4" + "@" + counterValueCombineError.ValleyValue;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(ValleyValue), this.qosLevel, this.retain);
+
+            //尖
+            string SharpValue = head.TypeId + "_" + counterValueCombineError.ToString() + "5" + "@" + counterValueCombineError.SharpValue;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SharpValue), this.qosLevel, this.retain);
+
+            //增量1
+            string Increment1 = head.TypeId + "_" + counterValueCombineError.ToString() + "6" + "@" + counterValueCombineError.Increment1;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Increment1), this.qosLevel, this.retain);
+
+
+            //增量2
+            string Increment2 = head.TypeId + "_" + counterValueCombineError.ToString() + "7" + "@" + counterValueCombineError.Increment2;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Increment2), this.qosLevel, this.retain);
+
+
+
+
+            //总增量
+            string TotalIncrement = head.TypeId + "_" + counterValueCombineError.ToString() + "8" + "@" + counterValueCombineError.TotalIncrement;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TotalIncrement), this.qosLevel, this.retain);
+
+
+            //增量差值
+            string IncrementError = head.TypeId + "_" + counterValueCombineError.ToString() + "9" + "@" + counterValueCombineError.IncrementError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(IncrementError), this.qosLevel, this.retain);
+
+
+            //结论
+            string Result = head.TypeId + "_" + counterValueCombineError.ToString() + "10" + "@" + counterValueCombineError.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
     }
 }

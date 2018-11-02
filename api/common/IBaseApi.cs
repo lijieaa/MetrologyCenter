@@ -84,5 +84,14 @@ namespace api.common
         /// <param name="currentOverLoad">电流过载试验属性信息</param>
         /// <returns></returns>
         int sendCurrentOverLoad(DetectHead head, CurrentOverLoad currentOverLoad);
+
+
+        /// <summary>
+        /// 计数器示值组合误差
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="currentOverLoad">计数器示值组合误差属性信息</param>
+        /// <returns></returns>
+        int sendCounterValueCombineError(DetectHead head, CounterValueCombineError counterValueCombineError);
     }
 }

@@ -213,5 +213,15 @@ namespace ApiWindowsFormsDemo
             CurrentOverLoad currentOverLoad = new CurrentOverLoad("P+", "合元115", "", 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1);
             api.sendCurrentOverLoad(head, currentOverLoad);
         }
+        /// <summary>
+        /// 计数器示值组合误差--没有找到编号ID
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="currentOverLoad">计数器示值组合误差属性信息</param>
+        /// <returns></returns>
+        private void button10_Click(object sender, EventArgs e)
+        {
+            new NotImplementedException();
+        }
     }
 }
