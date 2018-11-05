@@ -249,9 +249,21 @@ namespace ApiWindowsFormsDemo
         /// <returns></returns>
         private void button13_Click(object sender, EventArgs e)
         {
-            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "010", "006", "3530001000101287188895");
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "009", "006", "3530001000101287188895");
             OPowerConsume oPowerConsume = new OPowerConsume( 1.0f, 1.0f, 1.0f, 1.0f, 1);
             api.sendOPowerConsume(head, oPowerConsume);
+        }
+        /// <summary>
+        /// 功率消耗（三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="tPowerConsume">功率消耗（三相表）属性信息</param>
+        /// <returns></returns>
+        private void button14_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "009", "006", "3530001000101287188895");
+            TPowerConsume tPowerConsume = new TPowerConsume(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,1);
+            api.sendTPowerConsume(head, tPowerConsume);
         }
     }
 }

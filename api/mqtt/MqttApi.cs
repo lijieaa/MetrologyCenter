@@ -724,5 +724,84 @@ namespace api.mqtt
 
             return 0;
         }
+
+
+
+        /// <summary>
+        /// 功率消耗（三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="tPowerConsume">功率消耗（三相表）属性信息</param>
+        /// <returns></returns>
+        public int sendTPowerConsume(DetectHead head, TPowerConsume tPowerConsume)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //A相电压回路有功功率
+            string AVolActPower = head.TypeId + "_1" + "@" + tPowerConsume.AVolActPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AVolActPower), this.qosLevel, this.retain);
+
+
+            //B相电压回路有功功率
+            string BVolActPower = head.TypeId + "_2" + "@" + tPowerConsume.BVolActPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(BVolActPower), this.qosLevel, this.retain);
+
+
+            //C相电压回路有功功率
+            string CVolActPower = head.TypeId + "_3" + "@" + tPowerConsume.CVolActPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(CVolActPower), this.qosLevel, this.retain);
+
+            //A相电压回路视在功率
+            string AVolInsPower = head.TypeId + "_4" + "@" + tPowerConsume.AVolInsPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AVolInsPower), this.qosLevel, this.retain);
+
+            //B相电压回路视在功率
+            string BVolInsPower = head.TypeId + "_5" + "@" + tPowerConsume.BVolInsPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(BVolInsPower), this.qosLevel, this.retain);
+
+            //C相电压回路视在功率
+            string CVolInsPower = head.TypeId + "_6" + "@" + tPowerConsume.CVolInsPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(CVolInsPower), this.qosLevel, this.retain);
+
+
+            //A相电流回路有功功率
+            string ACurActPower = head.TypeId + "_7" + "@" + tPowerConsume.ACurActPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(ACurActPower), this.qosLevel, this.retain);
+
+
+
+
+            //B相电流回路有功功率
+            string BCurActPower = head.TypeId + "_8" + "@" + tPowerConsume.BCurActPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(BCurActPower), this.qosLevel, this.retain);
+
+
+            //C相电流回路有功功率
+            string CCurActPower = head.TypeId + "_9" + "@" + tPowerConsume.CCurActPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(CCurActPower), this.qosLevel, this.retain);
+
+
+            //A相电流回路视在功率
+            string ACurInsPower = head.TypeId + "_10" + "@" + tPowerConsume.ACurInsPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(ACurInsPower), this.qosLevel, this.retain);
+
+
+            //B相电流回路视在功率
+            string BCurInsPower = head.TypeId + "_11" + "@" + tPowerConsume.BCurInsPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(BCurInsPower), this.qosLevel, this.retain);
+
+            //C相电流回路视在功率
+            string CCurInsPower = head.TypeId + "_12" + "@" + tPowerConsume.CCurInsPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(CCurInsPower), this.qosLevel, this.retain);
+
+            //结论
+            string Result = head.TypeId + "_13" + "@" + tPowerConsume.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
     }
 }

@@ -111,5 +111,14 @@ namespace api.common
         /// <param name="oPowerConsume">功率消耗（单相表）属性信息</param>
         /// <returns></returns>
         int sendOPowerConsume(DetectHead head, OPowerConsume oPowerConsume);
+
+
+        /// <summary>
+        /// 功率消耗（三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="tPowerConsume">功率消耗（三相表）属性信息</param>
+        /// <returns></returns>
+        int sendTPowerConsume(DetectHead head, TPowerConsume tPowerConsume);
     }
 }
