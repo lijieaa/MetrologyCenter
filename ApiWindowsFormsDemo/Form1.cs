@@ -265,5 +265,10 @@ namespace ApiWindowsFormsDemo
             TPowerConsume tPowerConsume = new TPowerConsume(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,1);
             api.sendTPowerConsume(head, tPowerConsume);
         }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            new NotImplementedException();
+        }
     }
 }

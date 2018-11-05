@@ -120,5 +120,14 @@ namespace api.common
         /// <param name="tPowerConsume">功率消耗（三相表）属性信息</param>
         /// <returns></returns>
         int sendTPowerConsume(DetectHead head, TPowerConsume tPowerConsume);
+
+
+        /// <summary>
+        /// 交流电压试验（单相表、三相表）（耐压）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="aCVoltTest">交流电压试验（单相表、三相表）（耐压）属性信息</param>
+        /// <returns></returns>
+        int sendACVoltTest(DetectHead head, ACVoltTest aCVoltTest);
     }
 }

@@ -803,5 +803,45 @@ namespace api.mqtt
 
             return 0;
         }
+
+        public int sendACVoltTest(DetectHead head, ACVoltTest aCVoltTest)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //耐压值;伏
+            string VoltTestValue = head.TypeId + "_1" + "@" + aCVoltTest.VoltTestValue;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(VoltTestValue), this.qosLevel, this.retain);
+
+
+            //检定项目
+            string TestObj = head.TypeId + "_2" + "@" + aCVoltTest.TestObj;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TestObj), this.qosLevel, this.retain);
+
+
+            //测试时长;秒
+            string RealTestTime = head.TypeId + "_3" + "@" + aCVoltTest.RealTestTime;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(RealTestTime), this.qosLevel, this.retain);
+
+            //表漏电流
+            string MeterLeakageCur = head.TypeId + "_4" + "@" + aCVoltTest.MeterLeakageCur;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(MeterLeakageCur), this.qosLevel, this.retain);
+
+            //耐压仪漏电流
+            string VoltagetesterLeakageCur = head.TypeId + "_5" + "@" + aCVoltTest.VoltagetesterLeakageCur;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(VoltagetesterLeakageCur), this.qosLevel, this.retain);
+
+            //频率
+            string Freq = head.TypeId + "_6" + "@" + aCVoltTest.Freq;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Freq), this.qosLevel, this.retain);
+
+            //结论
+            string Result = head.TypeId + "_7" + "@" + aCVoltTest.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
     }
 }
