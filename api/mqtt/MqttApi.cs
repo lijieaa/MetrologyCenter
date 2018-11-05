@@ -611,5 +611,81 @@ namespace api.mqtt
 
             return 0;
         }
+        /// <summary>
+        /// 日计时误差（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="dayTimingError">日计时误差（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        public int sendDayTimingErrorr(DetectHead head, DayTimingError dayTimingError)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //误差1
+            string Error1 = head.TypeId + "_1" + "@" + dayTimingError.Error1;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error1), this.qosLevel, this.retain);
+
+
+            //误差2
+            string Error2 = head.TypeId + "_2" + "@" + dayTimingError.Error2;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error2), this.qosLevel, this.retain);
+
+
+            //误差3
+            string Error3 = head.TypeId + "_3" + "@" + dayTimingError.Error3;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error3), this.qosLevel, this.retain);
+
+            //误差4
+            string Error4 = head.TypeId + "_4" + "@" + dayTimingError.Error4;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error4), this.qosLevel, this.retain);
+
+            //误差5
+            string Error5 = head.TypeId + "_5" + "@" + dayTimingError.Error5;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error5), this.qosLevel, this.retain);
+
+            //误差6
+            string Error6 = head.TypeId + "_6" + "@" + dayTimingError.Error6;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error6), this.qosLevel, this.retain);
+
+
+            //误差7
+            string Error7 = head.TypeId + "_7" + "@" + dayTimingError.Error7;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error7), this.qosLevel, this.retain);
+
+
+
+
+            //误差8
+            string Error8 = head.TypeId + "_8" + "@" + dayTimingError.Error8;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error8), this.qosLevel, this.retain);
+
+
+            //误差9
+            string Error9 = head.TypeId + "_9" + "@" + dayTimingError.Error9;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error9), this.qosLevel, this.retain);
+
+
+            //误差10
+            string Error10 = head.TypeId + "_10" + "@" + dayTimingError.Error10;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error10), this.qosLevel, this.retain);
+
+
+            //平均误差
+            string AvgError = head.TypeId + "_11" + "@" + dayTimingError.AvgError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AvgError), this.qosLevel, this.retain);
+
+            //误差化整值
+            string IntConvertError = head.TypeId + "_12" + "@" + dayTimingError.IntConvertError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(IntConvertError), this.qosLevel, this.retain);
+
+            //结论
+            string Result = head.TypeId + "_13" + "@" + dayTimingError.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
     }
 }

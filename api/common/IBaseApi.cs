@@ -93,5 +93,14 @@ namespace api.common
         /// <param name="currentOverLoad">计数器示值组合误差属性信息</param>
         /// <returns></returns>
         int sendCounterValueCombineError(DetectHead head, CounterValueCombineError counterValueCombineError);
+
+
+        /// <summary>
+        /// 日计时误差（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="dayTimingError">日计时误差（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        int sendDayTimingErrorr(DetectHead head, DayTimingError dayTimingError);
     }
 }
