@@ -617,7 +617,7 @@ namespace api.mqtt
         /// <param name="head">公共属性信息</param>
         /// <param name="dayTimingError">日计时误差（单相表、三相表）属性信息</param>
         /// <returns></returns>
-        public int sendDayTimingErrorr(DetectHead head, DayTimingError dayTimingError)
+        public int sendDayTimingError(DetectHead head, DayTimingError dayTimingError)
         {
             //表位与表条码绑定
             string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
@@ -683,6 +683,43 @@ namespace api.mqtt
 
             //结论
             string Result = head.TypeId + "_13" + "@" + dayTimingError.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
+        /// <summary>
+        /// 功率消耗（单相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="oPowerConsume">功率消耗（单相表）属性信息</param>
+        /// <returns></returns>
+        public int sendOPowerConsume(DetectHead head, OPowerConsume oPowerConsume)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //电压回路有功功率
+            string VolActPower = head.TypeId + "_1" + "@" + oPowerConsume.VolActPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(VolActPower), this.qosLevel, this.retain);
+
+
+            //电压回路视在功率
+            string VolInsPower = head.TypeId + "_2" + "@" + oPowerConsume.VolInsPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(VolInsPower), this.qosLevel, this.retain);
+
+
+            //电流回路有功功率
+            string CurActPower = head.TypeId + "_3" + "@" + oPowerConsume.CurActPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(CurActPower), this.qosLevel, this.retain);
+
+            //电流回路视在功率
+            string CurInsPower = head.TypeId + "_4" + "@" + oPowerConsume.CurInsPower;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(CurInsPower), this.qosLevel, this.retain);
+
+            //结论
+            string Result = head.TypeId + "_5" + "@" + oPowerConsume.Result;
             this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
 
             return 0;

@@ -101,6 +101,15 @@ namespace api.common
         /// <param name="head">公共属性信息</param>
         /// <param name="dayTimingError">日计时误差（单相表、三相表）属性信息</param>
         /// <returns></returns>
-        int sendDayTimingErrorr(DetectHead head, DayTimingError dayTimingError);
+        int sendDayTimingError(DetectHead head, DayTimingError dayTimingError);
+
+
+        /// <summary>
+        /// 功率消耗（单相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="oPowerConsume">功率消耗（单相表）属性信息</param>
+        /// <returns></returns>
+        int sendOPowerConsume(DetectHead head, OPowerConsume oPowerConsume);
     }
 }
