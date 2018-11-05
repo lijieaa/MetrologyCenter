@@ -270,5 +270,17 @@ namespace ApiWindowsFormsDemo
         {
             new NotImplementedException();
         }
+        /// <summary>
+        /// 时段投切误差（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="periodFlingCutError">交流电压试验（单相表、三相表）（耐压）属性信息</param>
+        /// <returns></returns>
+        private void button16_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "014", "006", "3530001000101287188895");
+            PeriodFlingCutError periodFlingCutError = new PeriodFlingCutError("a", "b", "c", 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1);
+            api.sendPeriodFlingCutError(head,periodFlingCutError);
+        }
     }
 }

@@ -843,5 +843,60 @@ namespace api.mqtt
 
             return 0;
         }
+        /// <summary>
+        /// 时段投切误差（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="periodFlingCutError">交流电压试验（单相表、三相表）（耐压）属性信息</param>
+        /// <returns></returns>
+        public int sendPeriodFlingCutError(DetectHead head, PeriodFlingCutError periodFlingCutError)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            
+            //投切时间
+            string FlingcutTime = head.TypeId + "_1" + "@" + periodFlingCutError.FlingcutTime;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(FlingcutTime), this.qosLevel, this.retain);
+
+
+            //实际投切时间
+            string RealFlingcutTime = head.TypeId + "_2" + "@" + periodFlingCutError.RealFlingcutTime;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(RealFlingcutTime), this.qosLevel, this.retain);
+
+            //当前费率时间
+            string CurrentRateTime = head.TypeId + "_3" + "@" + periodFlingCutError.CurrentRateTime;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(CurrentRateTime), this.qosLevel, this.retain);
+
+            //示值误差
+            string ReadingError = head.TypeId + "_4" + "@" + periodFlingCutError.ReadingError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(ReadingError), this.qosLevel, this.retain);
+
+            //组合误差
+            string CombineError = head.TypeId + "_5" + "@" + periodFlingCutError.CombineError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(CombineError), this.qosLevel, this.retain);
+
+            //投切误差
+            string FlingcutError = head.TypeId + "_6" + "@" + periodFlingCutError.FlingcutError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(FlingcutError), this.qosLevel, this.retain);
+
+            //费率号
+            string RateId = head.TypeId + "_7" + "@" + periodFlingCutError.RateId;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(RateId), this.qosLevel, this.retain);
+
+            //投切方式
+            string FlingcutWay = head.TypeId + "_8" + "@" + periodFlingCutError.FlingcutWay;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(FlingcutWay), this.qosLevel, this.retain);
+
+
+            //投切方式
+            string Result = head.TypeId + "_9" + "@" + periodFlingCutError.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+
+            return 0;
+        }
     }
 }

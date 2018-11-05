@@ -129,5 +129,13 @@ namespace api.common
         /// <param name="aCVoltTest">交流电压试验（单相表、三相表）（耐压）属性信息</param>
         /// <returns></returns>
         int sendACVoltTest(DetectHead head, ACVoltTest aCVoltTest);
+
+        /// <summary>
+        /// 时段投切误差（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="periodFlingCutError">交流电压试验（单相表、三相表）（耐压）属性信息</param>
+        /// <returns></returns>
+        int sendPeriodFlingCutError(DetectHead head, PeriodFlingCutError periodFlingCutError);
     }
 }

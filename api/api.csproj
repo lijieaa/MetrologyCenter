@@ -54,6 +54,7 @@
     <Compile Include="entity\process\ErrorConsistencyTest.cs" />
     <Compile Include="entity\process\ErrorVariationTest.cs" />
     <Compile Include="entity\process\OPowerConsume.cs" />
+    <Compile Include="entity\process\PeriodFlingCutError.cs" />
     <Compile Include="entity\process\RatePeriodValueError.cs" />
     <Compile Include="entity\process\ShuntRunningTest.cs" />
     <Compile Include="entity\process\StartTest.cs" />
