@@ -976,5 +976,134 @@ namespace api.mqtt
 
             return 0;
         }
+        /// <summary>
+        /// 需量周期误差（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="needQperiodError">需量周期误差（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        public int sendNeedQperiodError(DetectHead head, NeedQperiodError needQperiodError)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+
+            //需量周期时间
+            string DemandPeriodTime = head.TypeId + "_1" + "@" + needQperiodError.DemandPeriodTime;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(DemandPeriodTime), this.qosLevel, this.retain);
+
+
+            //滑差时间
+            string SlipTime = head.TypeId + "_2" + "@" + needQperiodError.SlipTime;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SlipTime), this.qosLevel, this.retain);
+
+            // 标准表需量示值
+            string StdDemandReading = head.TypeId + "_3" + "@" + needQperiodError.StdDemandReading;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(StdDemandReading), this.qosLevel, this.retain);
+
+            //被测表需量示值
+            string TesterDemandReading = head.TypeId + "_4" + "@" + needQperiodError.TesterDemandReading;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TesterDemandReading), this.qosLevel, this.retain);
+
+            //需量示值误差
+            string DemandReadingErr = head.TypeId + "_5" + "@" + needQperiodError.DemandReadingErr;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(DemandReadingErr), this.qosLevel, this.retain);
+
+            //需量周期误差
+            string DemandPeriodErr = head.TypeId + "_6" + "@" + needQperiodError.DemandPeriodErr;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(DemandPeriodErr), this.qosLevel, this.retain);
+
+            //需量周期误差限值
+            string DemandPeriodErrLimit = head.TypeId + "_7" + "@" + needQperiodError.DemandPeriodErrLimit;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(DemandPeriodErrLimit), this.qosLevel, this.retain);
+
+            //标准表需量
+            string StdTableDemand = head.TypeId + "_8" + "@" + needQperiodError.StdTableDemand;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(StdTableDemand), this.qosLevel, this.retain);
+
+
+            //需量清零结果
+            string DemandClearResult = head.TypeId + "_9" + "@" + needQperiodError.DemandClearResult;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(DemandClearResult), this.qosLevel, this.retain);
+
+
+
+            //结论
+            string Result = head.TypeId + "_10" + "@" + needQperiodError.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+
+            return 0;
+        }
+        /// <summary>
+        /// 拉合闸试验
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="needQperiodError">拉合闸试验属性信息</param>
+        /// <returns></returns>
+        public int sendSwitchTest(DetectHead head, SwitchTest switchTest)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+
+            //拉闸前状态
+            string SwitchOutBeforeStatus = head.TypeId + "_1" + "@" + switchTest.SwitchOutBeforeStatus;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SwitchOutBeforeStatus), this.qosLevel, this.retain);
+
+
+            //拉闸后状态
+            string SwitchOutAfterStatus = head.TypeId + "_2" + "@" + switchTest.SwitchOutAfterStatus;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SwitchOutAfterStatus), this.qosLevel, this.retain);
+
+            // 合闸前状态
+            string SwitchOnBeforeStatus = head.TypeId + "_3" + "@" + switchTest.SwitchOnBeforeStatus;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SwitchOnBeforeStatus), this.qosLevel, this.retain);
+
+            //合闸后状态
+            string SwitchOnAfterStatus = head.TypeId + "_4" + "@" + switchTest.SwitchOnAfterStatus;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SwitchOnAfterStatus), this.qosLevel, this.retain);
+
+            //Result
+            string Result = head.TypeId + "_5" + "@" + switchTest.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
+        /// <summary>
+        /// 对时功能
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="syncTimeTest">对时功能属性信息</param>
+        /// <returns></returns>
+        public int sendSyncTimeTest(DetectHead head, SyncTimeTest syncTimeTest)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+
+            //对时前电能表时间
+            string SyncBefore = head.TypeId + "_1" + "@" + syncTimeTest.SyncBefore;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SyncBefore), this.qosLevel, this.retain);
+
+
+            //对时后电能表时间
+            string SyncAfter = head.TypeId + "_2" + "@" + syncTimeTest.SyncAfter;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SyncAfter), this.qosLevel, this.retain);
+
+
+            //结论
+            string Result = head.TypeId + "_3" + "@" + syncTimeTest.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+
+            return 0;
+        }
     }
 }

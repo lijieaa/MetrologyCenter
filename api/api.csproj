@@ -53,6 +53,7 @@
     <Compile Include="entity\process\DeviceConstantTest.cs" />
     <Compile Include="entity\process\ErrorConsistencyTest.cs" />
     <Compile Include="entity\process\ErrorVariationTest.cs" />
+    <Compile Include="entity\process\NeedQperiodError.cs" />
     <Compile Include="entity\process\OPowerConsume.cs" />
     <Compile Include="entity\process\PeriodFlingCutError.cs" />
     <Compile Include="entity\process\RatePeriodValueError.cs" />
@@ -60,6 +61,8 @@
     <Compile Include="entity\process\ShuntRunningTest.cs" />
     <Compile Include="entity\process\StartTest.cs" />
     <Compile Include="entity\process\SurplusEQDescendEntity.cs" />
+    <Compile Include="entity\process\SwitchTest.cs" />
+    <Compile Include="entity\process\SyncTimeTest.cs" />
     <Compile Include="entity\process\TPowerConsume.cs" />
     <Compile Include="mqtt\MqttApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

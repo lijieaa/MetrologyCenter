@@ -294,5 +294,39 @@ namespace ApiWindowsFormsDemo
             RunningTest runningTest = new RunningTest(1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1);
             api.sendRunningTest(head, runningTest);
         }
+        /// <summary>
+        /// 需量周期误差（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="needQperiodError">需量周期误差（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        private void button18_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "016", "006", "3530001000101287188895");
+            NeedQperiodError needQperiodError = new NeedQperiodError("a", "b", 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1);
+            api.sendNeedQperiodError(head, needQperiodError);
+        }
+        /// <summary>
+        /// 拉合闸试验
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="needQperiodError">拉合闸试验属性信息</param>
+        /// <returns></returns>
+        private void button19_Click(object sender, EventArgs e)
+        {
+            new NotImplementedException();
+        }
+        /// <summary>
+        /// 对时功能
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="syncTimeTest">对时功能属性信息</param>
+        /// <returns></returns>
+        private void button22_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "029", "006", "3530001000101287188895");
+            SyncTimeTest syncTimeTest = new SyncTimeTest("a", "b", 1);
+            api.sendSyncTimeTest(head, syncTimeTest);
+        }
     }
 }
