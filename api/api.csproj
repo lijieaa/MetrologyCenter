@@ -56,6 +56,7 @@
     <Compile Include="entity\process\OPowerConsume.cs" />
     <Compile Include="entity\process\PeriodFlingCutError.cs" />
     <Compile Include="entity\process\RatePeriodValueError.cs" />
+    <Compile Include="entity\process\RunningTest.cs" />
     <Compile Include="entity\process\ShuntRunningTest.cs" />
     <Compile Include="entity\process\StartTest.cs" />
     <Compile Include="entity\process\SurplusEQDescendEntity.cs" />

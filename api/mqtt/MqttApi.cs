@@ -898,5 +898,83 @@ namespace api.mqtt
 
             return 0;
         }
+        /// <summary>
+        /// 走字试验（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="runningTest">走字试验（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        public int sendRunningTest(DetectHead head, RunningTest runningTest)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+
+            //起动示值
+            string StartReading = head.TypeId + "_1" + "@" + runningTest.StartReading;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(StartReading), this.qosLevel, this.retain);
+
+
+            //结束示值
+            string EndReading = head.TypeId + "_2" + "@" + runningTest.EndReading;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(EndReading), this.qosLevel, this.retain);
+
+            //示值误差
+            string ReadingError = head.TypeId + "_3" + "@" + runningTest.ReadingError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(ReadingError), this.qosLevel, this.retain);
+
+            //走字误差值
+            string RunningError = head.TypeId + "_4" + "@" + runningTest.RunningError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(RunningError), this.qosLevel, this.retain);
+
+            //起始度数
+            string BeginDegree = head.TypeId + "_5" + "@" + runningTest.BeginDegree;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(BeginDegree), this.qosLevel, this.retain);
+
+            //结束度数
+            string EndDegree = head.TypeId + "_6" + "@" + runningTest.EndDegree;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(EndDegree), this.qosLevel, this.retain);
+
+            //走字度数
+            string RunningDegree = head.TypeId + "_7" + "@" + runningTest.RunningDegree;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(RunningDegree), this.qosLevel, this.retain);
+
+            //走字方式
+            string RunningWay = head.TypeId + "_8" + "@" + runningTest.RunningWay;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(RunningWay), this.qosLevel, this.retain);
+
+
+            //脉冲数
+            string PulseNum = head.TypeId + "_9" + "@" + runningTest.PulseNum;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(PulseNum), this.qosLevel, this.retain);
+
+
+            //标准表度数
+            string StdTableDegree = head.TypeId + "_10" + "@" + runningTest.StdTableDegree;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(StdTableDegree), this.qosLevel, this.retain);
+
+            //电量误差
+            string EqError = head.TypeId + "_11" + "@" + runningTest.EqError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(EqError), this.qosLevel, this.retain);
+
+            //误差上限
+            string ErrorMax = head.TypeId + "_12" + "@" + runningTest.ErrorMax;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(ErrorMax), this.qosLevel, this.retain);
+
+
+            //误差上限
+            string ErrorMin = head.TypeId + "_13" + "@" + runningTest.ErrorMin;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(ErrorMin), this.qosLevel, this.retain);
+
+
+            //结论
+            string Result = head.TypeId + "_14" + "@" + runningTest.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+
+            return 0;
+        }
     }
 }
