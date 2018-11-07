@@ -1105,5 +1105,30 @@ namespace api.mqtt
 
             return 0;
         }
+        /// <summary>
+        /// 读通信地址
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="readAddr">读通信地址属性信息</param>
+        /// <returns></returns>
+        public int sendReadAddr(DetectHead head, ReadAddr readAddr)
+        {
+
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //通信地址
+            string SyncAfter = head.TypeId + "_1" + "@" + readAddr.CommAddr;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(SyncAfter), this.qosLevel, this.retain);
+
+
+            //结论
+            string Result = head.TypeId + "_2" + "@" + readAddr.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
     }
 }

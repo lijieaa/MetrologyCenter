@@ -172,5 +172,16 @@ namespace api.common
         /// <param name="syncTimeTest">对时功能属性信息</param>
         /// <returns></returns>
         int sendSyncTimeTest(DetectHead head, SyncTimeTest syncTimeTest);
+
+
+
+
+        /// <summary>
+        /// 读通信地址
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="readAddr">读通信地址属性信息</param>
+        /// <returns></returns>
+        int sendReadAddr(DetectHead head, ReadAddr readAddr);
     }
 }

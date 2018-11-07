@@ -328,5 +328,17 @@ namespace ApiWindowsFormsDemo
             SyncTimeTest syncTimeTest = new SyncTimeTest("a", "b", 1);
             api.sendSyncTimeTest(head, syncTimeTest);
         }
+        /// <summary>
+        /// 读通信地址
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="readAddr">读通信地址属性信息</param>
+        /// <returns></returns>
+        private void button23_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "030", "006", "3530001000101287188895");
+            ReadAddr readAddr = new ReadAddr("a", 1);
+            api.sendReadAddr(head, readAddr);
+        }
     }
 }
