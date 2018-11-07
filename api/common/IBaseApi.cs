@@ -192,5 +192,14 @@ namespace api.common
         /// <param name="iDAuthentication">身份认证属性信息</param>
         /// <returns></returns>
         int sendIDAuthentication(DetectHead head, IDAuthentication iDAuthentication);
+
+
+        /// <summary>
+        /// 探测表地址
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="detectionTableAddress">探测表地址属性信息</param>
+        /// <returns></returns>
+        int sendDetectionTableAddress(DetectHead head, DetectionTableAddress detectionTableAddress);
     }
 }

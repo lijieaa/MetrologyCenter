@@ -54,6 +54,7 @@
             this.button24 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -319,11 +320,22 @@
             this.button26.Text = "需量示值误差试验";
             this.button26.UseVisualStyleBackColor = true;
             // 
+            // button27
+            // 
+            this.button27.Location = new System.Drawing.Point(294, 127);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(83, 23);
+            this.button27.TabIndex = 26;
+            this.button27.Text = "探测表地址";
+            this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1201, 484);
+            this.Controls.Add(this.button27);
             this.Controls.Add(this.button26);
             this.Controls.Add(this.button25);
             this.Controls.Add(this.button24);
@@ -386,6 +398,7 @@
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button27;
     }
 }
 

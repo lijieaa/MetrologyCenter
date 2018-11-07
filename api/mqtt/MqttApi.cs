@@ -1154,5 +1154,30 @@ namespace api.mqtt
 
             return 0;
         }
+
+        /// <summary>
+        /// 探测表地址
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="detectionTableAddress">探测表地址属性信息</param>
+        /// <returns></returns>
+        public int sendDetectionTableAddress(DetectHead head, DetectionTableAddress detectionTableAddress)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //表地址
+            string TableAddress = head.TypeId + "_1" + "@" + detectionTableAddress.TableAddress;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(TableAddress), this.qosLevel, this.retain);
+
+
+            //结论
+            string Result = head.TypeId + "_2" + "@" + detectionTableAddress.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
     }
 }

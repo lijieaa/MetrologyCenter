@@ -352,5 +352,17 @@ namespace ApiWindowsFormsDemo
             IDAuthentication iDAuthentication = new IDAuthentication(1.1f, 1);
             api.sendIDAuthentication(head, iDAuthentication);
         }
+        /// <summary>
+        /// 探测表地址
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="detectionTableAddress">探测表地址属性信息</param>
+        /// <returns></returns>
+        private void button27_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "031", "006", "3530001000101287188895");
+            DetectionTableAddress detectionTableAddress = new DetectionTableAddress("a", 1);
+            api.sendDetectionTableAddress(head, detectionTableAddress);
+        }
     }
 }
