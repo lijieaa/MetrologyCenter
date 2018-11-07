@@ -52,6 +52,7 @@
             this.button22 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -298,11 +299,22 @@
             this.button24.Text = "定时冻结";
             this.button24.UseVisualStyleBackColor = true;
             // 
+            // button25
+            // 
+            this.button25.Location = new System.Drawing.Point(13, 128);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(162, 23);
+            this.button25.TabIndex = 24;
+            this.button25.Text = "身份认证";
+            this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1201, 484);
+            this.Controls.Add(this.button25);
             this.Controls.Add(this.button24);
             this.Controls.Add(this.button23);
             this.Controls.Add(this.button22);
@@ -361,6 +373,7 @@
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button button25;
     }
 }
 

@@ -183,5 +183,14 @@ namespace api.common
         /// <param name="readAddr">读通信地址属性信息</param>
         /// <returns></returns>
         int sendReadAddr(DetectHead head, ReadAddr readAddr);
+
+
+        /// <summary>
+        /// 身份认证
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="iDAuthentication">身份认证属性信息</param>
+        /// <returns></returns>
+        int sendIDAuthentication(DetectHead head, IDAuthentication iDAuthentication);
     }
 }

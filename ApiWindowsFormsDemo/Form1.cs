@@ -340,5 +340,17 @@ namespace ApiWindowsFormsDemo
             ReadAddr readAddr = new ReadAddr("a", 1);
             api.sendReadAddr(head, readAddr);
         }
+        /// <summary>
+        /// 身份认证
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="iDAuthentication">身份认证属性信息</param>
+        /// <returns></returns>
+        private void button25_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "033", "006", "3530001000101287188895");
+            IDAuthentication iDAuthentication = new IDAuthentication(1.1f, 1);
+            api.sendIDAuthentication(head, iDAuthentication);
+        }
     }
 }
