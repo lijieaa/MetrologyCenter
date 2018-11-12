@@ -64,6 +64,7 @@
     <Compile Include="entity\process\ReadAddr.cs" />
     <Compile Include="entity\process\RunningTest.cs" />
     <Compile Include="entity\process\ShuntRunningTest.cs" />
+    <Compile Include="entity\process\StandardError.cs" />
     <Compile Include="entity\process\StartTest.cs" />
     <Compile Include="entity\process\SurplusEQDescendEntity.cs" />
     <Compile Include="entity\process\SwitchTest.cs" />

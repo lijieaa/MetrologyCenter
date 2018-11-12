@@ -1235,5 +1235,58 @@ namespace api.mqtt
 
             return 0;
         }
+
+        /// <summary>
+        /// 标准偏差
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="standardError">标准偏差属性信息</param>
+        /// <returns></returns>
+        public int sendStandardError(DetectHead head, StandardError standardError)
+        {
+
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+
+            //误差1
+            string Error1 = head.TypeId + "_1" + "@" + standardError.Error1;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error1), this.qosLevel, this.retain);
+
+
+            //误差2
+            string Error2 = head.TypeId + "_2" + "@" + standardError.Error2;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error2), this.qosLevel, this.retain);
+
+            // 误差3
+            string Error3 = head.TypeId + "_3" + "@" + standardError.Error3;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error3), this.qosLevel, this.retain);
+
+            //误差4
+            string Error4 = head.TypeId + "_4" + "@" + standardError.Error4;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error4), this.qosLevel, this.retain);
+
+            //误差5
+            string Error5 = head.TypeId + "_5" + "@" + standardError.Error5;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Error5), this.qosLevel, this.retain);
+
+            //平均误差
+            string AvgError = head.TypeId + "_6" + "@" + standardError.AvgError;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AvgError), this.qosLevel, this.retain);
+
+            ///标准偏差
+            string StandardError = head.TypeId + "_7" + "@" + standardError.StandardErr;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(StandardError), this.qosLevel, this.retain);
+
+        
+            //结论
+            string Result = head.TypeId + "_8" + "@" + standardError.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+
+            return 0;
+        }
     }
 }

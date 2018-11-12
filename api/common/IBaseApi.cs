@@ -219,5 +219,14 @@ namespace api.common
         /// <param name="leapYearSwitch">闰年切换属性信息</param>
         /// <returns></returns>
         int sendLeapYearSwitch(DetectHead head, LeapYearSwitch leapYearSwitch);
+
+
+        /// <summary>
+        /// 标准偏差
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="standardError">标准偏差属性信息</param>
+        /// <returns></returns>
+        int sendStandardError(DetectHead head, StandardError standardError);
     }
 }

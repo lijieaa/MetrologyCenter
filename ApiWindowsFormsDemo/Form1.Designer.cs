@@ -59,6 +59,7 @@
             this.button29 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
+            this.button32 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -366,6 +367,7 @@
             // 
             // button31
             // 
+            this.button31.ForeColor = System.Drawing.Color.Red;
             this.button31.Location = new System.Drawing.Point(746, 127);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(126, 23);
@@ -373,11 +375,22 @@
             this.button31.Text = "最大需量清零";
             this.button31.UseVisualStyleBackColor = true;
             // 
+            // button32
+            // 
+            this.button32.Location = new System.Drawing.Point(890, 127);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(107, 23);
+            this.button32.TabIndex = 31;
+            this.button32.Text = "标准偏差";
+            this.button32.UseVisualStyleBackColor = true;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1201, 484);
+            this.Controls.Add(this.button32);
             this.Controls.Add(this.button31);
             this.Controls.Add(this.button30);
             this.Controls.Add(this.button29);
@@ -450,6 +463,7 @@
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.Button button32;
     }
 }
 

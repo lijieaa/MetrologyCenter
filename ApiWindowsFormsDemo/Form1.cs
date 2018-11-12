@@ -388,5 +388,17 @@ namespace ApiWindowsFormsDemo
             LeapYearSwitch leapYearSwitch = new LeapYearSwitch("a", "b", 1);
             api.sendLeapYearSwitch(head, leapYearSwitch);
         }
+        /// <summary>
+        /// 标准偏差
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="standardError">标准偏差属性信息</param>
+        /// <returns></returns>
+        private void button32_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "038", "006", "3530001000101287188895");
+            StandardError StandardError = new StandardError(1, 2,3,4,5,6,7, 1);
+            api.sendStandardError(head, StandardError);
+        }
     }
 }
