@@ -45,6 +45,7 @@
     <Compile Include="entity\common\BaseEntity.cs" />
     <Compile Include="entity\process\ACVoltTest.cs" />
     <Compile Include="entity\process\BasicErrorEntity.cs" />
+    <Compile Include="entity\process\BroadcastCheckTime.cs" />
     <Compile Include="entity\process\CounterValueCombineError.cs" />
     <Compile Include="entity\process\CurrentLoadUpdownVarErr.cs" />
     <Compile Include="entity\process\CurrentOverLoad.cs" />

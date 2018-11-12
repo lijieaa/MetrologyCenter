@@ -364,5 +364,17 @@ namespace ApiWindowsFormsDemo
             DetectionTableAddress detectionTableAddress = new DetectionTableAddress("a", 1);
             api.sendDetectionTableAddress(head, detectionTableAddress);
         }
+        /// <summary>
+        /// 广播校时
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="broadcastCheckTime">广播校时属性信息</param>
+        /// <returns></returns>
+        private void button28_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "037", "006", "3530001000101287188895");
+            BroadcastCheckTime broadcastCheckTime = new BroadcastCheckTime("a","b",1);
+            api.sendBroadcastCheckTime(head, broadcastCheckTime);
+        }
     }
 }

@@ -201,5 +201,14 @@ namespace api.common
         /// <param name="detectionTableAddress">探测表地址属性信息</param>
         /// <returns></returns>
         int sendDetectionTableAddress(DetectHead head, DetectionTableAddress detectionTableAddress);
+
+
+        /// <summary>
+        /// 广播校时
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="broadcastCheckTime">广播校时属性信息</param>
+        /// <returns></returns>
+        int sendBroadcastCheckTime(DetectHead head, BroadcastCheckTime broadcastCheckTime);
     }
 }

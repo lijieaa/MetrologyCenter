@@ -1179,5 +1179,33 @@ namespace api.mqtt
 
             return 0;
         }
+        /// <summary>
+        /// 广播校时
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="broadcastCheckTime">广播校时属性信息</param>
+        /// <returns></returns>
+        public int sendBroadcastCheckTime(DetectHead head, BroadcastCheckTime broadcastCheckTime)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //校时前时间
+            string BeforCheckTime = head.TypeId + "_1" + "@" + broadcastCheckTime.BeforCheckTime;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(BeforCheckTime), this.qosLevel, this.retain);
+
+
+            //校时后时间
+            string AfterCheckTime = head.TypeId + "_2" + "@" + broadcastCheckTime.AfterCheckTime;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AfterCheckTime), this.qosLevel, this.retain);
+
+            //结论
+            string Result = head.TypeId + "_3" + "@" + broadcastCheckTime.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
     }
 }
