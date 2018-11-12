@@ -228,5 +228,14 @@ namespace api.common
         /// <param name="standardError">标准偏差属性信息</param>
         /// <returns></returns>
         int sendStandardError(DetectHead head, StandardError standardError);
+
+
+        /// <summary>
+        /// 所有只有一个结论的结构体：外观检查 功率消耗 耐压实验 载波通信试验  拉合闸实验 密钥下装 电量清零（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="standardError">所有只有一个结论的结构体：外观检查 功率消耗 耐压实验 载波通信试验  拉合闸实验 密钥下装 电量清零（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        int sendResultStruct(DetectHead head, ResultStruct resultStruct);
     }
 }

@@ -397,8 +397,20 @@ namespace ApiWindowsFormsDemo
         private void button32_Click(object sender, EventArgs e)
         {
             DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "038", "006", "3530001000101287188895");
-            StandardError StandardError = new StandardError(1, 2,3,4,5,6,7, 1);
-            api.sendStandardError(head, StandardError);
+            StandardError standardError = new StandardError(1, 2,3,4,5,6,7, 1);
+            api.sendStandardError(head, standardError);
+        }
+        /// <summary>
+        /// 所有只有一个结论的结构体：外观检查 功率消耗 耐压实验 载波通信试验  拉合闸实验 密钥下装 电量清零（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="standardError">所有只有一个结论的结构体：外观检查 功率消耗 耐压实验 载波通信试验  拉合闸实验 密钥下装 电量清零（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        private void button33_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "001", "006", "3530001000101287188895");
+            ResultStruct resultStruct = new ResultStruct(1);
+            api.sendResultStruct(head, resultStruct);
         }
     }
 }

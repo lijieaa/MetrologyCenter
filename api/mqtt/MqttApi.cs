@@ -1288,5 +1288,27 @@ namespace api.mqtt
 
             return 0;
         }
+
+        /// <summary>
+        /// 所有只有一个结论的结构体：外观检查 功率消耗 耐压实验 载波通信试验  拉合闸实验 密钥下装 电量清零（单相表、三相表）
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="resultStruct">所有只有一个结论的结构体：外观检查 功率消耗 耐压实验 载波通信试验  拉合闸实验 密钥下装 电量清零（单相表、三相表）属性信息</param>
+        /// <returns></returns>
+        public int sendResultStruct(DetectHead head, ResultStruct resultStruct)
+        {
+
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //结论
+            string Result = head.TypeId + "_1" + "@" + resultStruct.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+
+            return 0;
+        }
     }
 }
