@@ -210,5 +210,14 @@ namespace api.common
         /// <param name="broadcastCheckTime">广播校时属性信息</param>
         /// <returns></returns>
         int sendBroadcastCheckTime(DetectHead head, BroadcastCheckTime broadcastCheckTime);
+
+
+        /// <summary>
+        /// 闰年切换
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="leapYearSwitch">闰年切换属性信息</param>
+        /// <returns></returns>
+        int sendLeapYearSwitch(DetectHead head, LeapYearSwitch leapYearSwitch);
     }
 }

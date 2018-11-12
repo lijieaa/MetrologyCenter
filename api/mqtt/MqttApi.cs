@@ -1207,5 +1207,33 @@ namespace api.mqtt
 
             return 0;
         }
+        /// <summary>
+        /// 闰年切换
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="leapYearSwitch">闰年切换属性信息</param>
+        /// <returns></returns>
+        public int sendLeapYearSwitch(DetectHead head, LeapYearSwitch leapYearSwitch)
+        {
+            //表位与表条码绑定
+            string barcode = head.MeterId + "_" + "1001" + "@" + head.BarCode;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(barcode), this.qosLevel, this.retain);
+
+
+            //实验前时间
+            string BeforTxperimentTime = head.TypeId + "_1" + "@" + leapYearSwitch.BeforTxperimentTime;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(BeforTxperimentTime), this.qosLevel, this.retain);
+
+
+            //实验后时间
+            string AfterTxperimentTime = head.TypeId + "_2" + "@" + leapYearSwitch.AfterTxperimentTime;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(AfterTxperimentTime), this.qosLevel, this.retain);
+
+            //结论
+            string Result = head.TypeId + "_3" + "@" + leapYearSwitch.Result;
+            this.Publish(VERIFICATION_PROCESS_TOP, Encoding.UTF8.GetBytes(Result), this.qosLevel, this.retain);
+
+            return 0;
+        }
     }
 }

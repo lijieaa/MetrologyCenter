@@ -376,5 +376,17 @@ namespace ApiWindowsFormsDemo
             BroadcastCheckTime broadcastCheckTime = new BroadcastCheckTime("a","b",1);
             api.sendBroadcastCheckTime(head, broadcastCheckTime);
         }
+        /// <summary>
+        /// 闰年切换
+        /// </summary>
+        /// <param name="head">公共属性信息</param>
+        /// <param name="leapYearSwitch">闰年切换属性信息</param>
+        /// <returns></returns>
+        private void button29_Click(object sender, EventArgs e)
+        {
+            DetectHead head = new DetectHead("08", "02", "1", "1", "00", "000", "115", "007", "043", "006", "3530001000101287188895");
+            LeapYearSwitch leapYearSwitch = new LeapYearSwitch("a", "b", 1);
+            api.sendLeapYearSwitch(head, leapYearSwitch);
+        }
     }
 }

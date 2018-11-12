@@ -56,6 +56,7 @@
     <Compile Include="entity\process\ErrorConsistencyTest.cs" />
     <Compile Include="entity\process\ErrorVariationTest.cs" />
     <Compile Include="entity\process\IDAuthentication.cs" />
+    <Compile Include="entity\process\LeapYearSwitch.cs" />
     <Compile Include="entity\process\NeedQperiodError.cs" />
     <Compile Include="entity\process\OPowerConsume.cs" />
     <Compile Include="entity\process\PeriodFlingCutError.cs" />
